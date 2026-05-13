@@ -1,0 +1,118 @@
+QUICK START GUIDE - OpenRouter Chatbot
+======================================
+
+OPTION 1: Run with Environment Variable Set
+--------------------------------------------
+1. Open Command Prompt
+2. Run these commands:
+   
+   setx OPENROUTER_API_KEY "sk-or-v1-..."
+   
+   (Replace "sk-or-v1-..." with your actual OpenRouter API key)
+
+3. Close Command Prompt and reopen it
+
+4. Navigate to the project:
+   cd e:\SD\LAB 8
+
+5. Compile (if not already done):
+   javac Chat.java
+
+6. Run the application:
+   java Chat
+
+7. The chatbot window opens - ready to use!
+
+
+OPTION 2: Run with Dialog Prompt
+---------------------------------
+1. Open Command Prompt
+2. Navigate to project:
+   cd e:\SD\LAB 8
+
+3. Run the application:
+   java Chat
+
+4. A dialog box appears asking for your API key
+5. Paste your OpenRouter API key
+6. Click OK
+7. Chatbot is ready!
+
+
+YOUR API KEY:
+=============
+<YOUR_OPENROUTER_API_KEY>
+
+To verify your API key is valid, visit:
+https://openrouter.ai/keys
+
+
+FIRST TIME SETUP:
+=================
+1. Get API key from: https://openrouter.ai
+2. Sign up or log in
+3. Navigate to keys section
+4. Copy your API key
+5. Use either OPTION 1 or OPTION 2 above
+
+Then start chatting!
+
+
+FEATURES TO TRY:
+================
+- Type: "Hello"
+  * NLP will identify greeting keyword
+  * Get friendly response
+
+- Type: "What can you help me with?"
+  * NLP identifies question intent
+  * Get detailed response
+
+- Try different models from dropdown:
+  * openai/gpt-4o-mini (fast, default)
+  * anthropic/claude-3.5-sonnet (highest quality)
+  * meta-llama/llama-3.1-70b-instruct (open source)
+  * mistralai/mistral-7b-instruct (lightweight)
+
+- Long conversations:
+  * The app automatically maintains history
+  * Models remember context
+  * More natural conversations
+
+
+TROUBLESHOOTING:
+================
+
+Q: Error when running "java Chat"
+A: Make sure you've compiled first: javac Chat.java
+
+Q: "API Key not configured" error
+A: Either:
+  - Set OPENROUTER_API_KEY environment variable
+  - Or paste it in the dialog when app starts
+
+Q: Blank dialog when starting
+A: Enter your OpenRouter API key and click OK
+
+Q: Connection refused errors
+A: Check your internet connection and API key validity
+
+Q: Compilation errors
+A: Ensure Java 11+ is installed: java -version
+
+
+PERFORMANCE TIPS:
+=================
+- GPT-4o-mini: Fastest, good for quick replies
+- Claude 3.5: Best quality, slightly slower
+- Llama: Open source, good balance
+- Mistral: Lightweight, quick responses
+
+Choose based on your needs!
+
+
+NEED HELP?
+==========
+- OpenRouter Documentation: https://openrouter.ai/docs
+- OpenRouter Status: https://status.openrouter.ai
+- Java Support: https://docs.oracle.com/javase

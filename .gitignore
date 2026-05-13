@@ -1,0 +1,40 @@
+# Java build files
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+
+# Eclipse / IntelliJ / NetBeans project files
+*.project
+*.classpath
+*.settings/
+*.idea/
+*.iml
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Maven / Gradle directories
+target/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Virtual machine crash logs
+hs_err_pid*
+replay_pid*
+
+# Environment files
+*.env

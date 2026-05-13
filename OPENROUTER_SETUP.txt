@@ -1,0 +1,157 @@
+OpenRouter AI Chatbot with NLP Processing - Setup Guide
+========================================================
+
+PROJECT OVERVIEW:
+- Java Swing GUI chatbot application
+- Integrates OpenRouter API for multiple AI models
+- Includes NLP text processing and analysis
+- Supports conversation history
+
+FEATURES:
+✓ Multi-model support (OpenAI GPT-4, Claude 3.5, Llama, Mistral)
+✓ NLP text analysis (keyword extraction, intent detection, sentiment)
+✓ Conversation history tracking
+✓ Thread-based API calls (non-blocking UI)
+✓ Real-time NLP analysis display
+
+STEP 1: Get OpenRouter API Key
+------------------------------
+1. Visit: https://openrouter.ai/keys
+2. Sign up or log in to your account
+3. Create a new API key
+4. Copy your API key
+
+STEP 2: Set Environment Variable (Optional but Recommended)
+-----------------------------------------------------------
+Windows Command Prompt:
+  setx OPENROUTER_API_KEY "your-api-key-here"
+
+Or set it just for the current session:
+  set OPENROUTER_API_KEY=your-api-key-here
+
+Then close and reopen the terminal.
+
+STEP 3: Compile the Application
+-------------------------------
+cd e:\SD\LAB 8
+javac Chat.java
+
+This creates the following compiled classes:
+  - Chat.class (main application)
+  - OpenRouterClient.class (API client)
+  - Message.class (message model)
+  - NLPProcessor.class (NLP engine)
+  - NLPAnalysis.class (analysis results)
+
+STEP 4: Run the Application
+---------------------------
+java Chat
+
+The application will:
+1. Check for OPENROUTER_API_KEY environment variable
+2. If not found, show a dialog to enter your API key
+3. Display the chatbot window with model selector and chat area
+4. Ready to start chatting!
+
+USING THE CHATBOT:
+==================
+1. Select a model from the dropdown (default: OpenAI GPT-4o-mini)
+2. Type your message in the input field
+3. Press "Send" or hit Enter
+4. The NLP processor will analyze your input and display keywords
+5. The chat will send your message to OpenRouter API
+6. Assistant response appears in the chat area
+7. Conversation history is maintained for context
+
+SUPPORTED MODELS:
+=================
+- openai/gpt-4o-mini (default, fast and efficient)
+- anthropic/claude-3.5-sonnet (highest quality)
+- meta-llama/llama-3.1-70b-instruct (open-source, fast)
+- mistralai/mistral-7b-instruct (lightweight)
+
+NLP FEATURES:
+=============
+1. Keyword Extraction: Detects common keywords like:
+   hello, hi, thank, help, what, why, how, when, where, etc.
+
+2. Intent Detection:
+   - greeting: hello, hi, hey
+   - help_request: help, how
+   - gratitude: thank, thanks
+   - question: contains "?"
+   - statement: other messages
+
+3. Sentiment Analysis:
+   - positive: good, great, excellent
+   - negative: bad, poor, terrible
+   - neutral: other
+
+TROUBLESHOOTING:
+================
+Issue: "No API key provided"
+Solution: 
+  - Make sure you have an OpenRouter API key
+  - Set the OPENROUTER_API_KEY environment variable
+  - Or enter it in the dialog when the app starts
+
+Issue: "Connection Error"
+Solution:
+  - Check your internet connection
+  - Verify your API key is valid at https://openrouter.ai
+  - Check OpenRouter API status
+
+Issue: "API Error (Status 401)"
+Solution:
+  - Your API key is invalid or expired
+  - Get a new key from https://openrouter.ai/keys
+
+Issue: Compilation errors
+Solution:
+  - Make sure you're using Java 11 or later
+  - Run: java -version
+  - All source files should be in the same directory
+
+ARCHITECTURE:
+==============
+- Chat.class: Main GUI (Swing JFrame)
+  * ModelSelector: Choose AI model
+  * ChatArea: Display messages
+  * InputField: Type messages
+  * sendMessage(): Handle message submission
+  * getOpenRouterResponse(): Get AI response
+
+- OpenRouterClient.class: API client
+  * sendMessage(): Send request to OpenRouter
+  * parseOpenRouterResponse(): Extract response text
+  * Handles authentication and error responses
+
+- NLPProcessor.class: Text analysis
+  * analyzeText(): Main NLP analysis
+  * Intent detection
+  * Keyword extraction
+  * Sentiment analysis
+
+- Message.class: Conversation message
+  * Stores role (user/assistant) and content
+  * Part of conversation history
+
+EXAMPLE USAGE:
+==============
+User: Hello, how are you?
+[NLP Keywords: hello, how]
+Assistant: I'm doing well, thank you for asking! How can I help you today?
+
+User: What can you help me with?
+[NLP Keywords: what, help]
+Assistant: I can help you with...
+
+FILES CREATED:
+==============
+- Chat.java: Main application source
+- Chat.class: Compiled main class
+- OpenRouterClient.class: API client class
+- Message.class: Message model class
+- NLPProcessor.class: NLP processor class
+- NLPAnalysis.class: NLP analysis results class
+- OPENROUTER_SETUP.txt: This file

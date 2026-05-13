@@ -1,0 +1,312 @@
+OpenRouter AI Chatbot - Command Reference
+===========================================
+
+YOUR API KEY:
+=============
+<YOUR_OPENROUTER_API_KEY>
+
+ESSENTIAL COMMANDS:
+===================
+
+1. SET ENVIRONMENT VARIABLE (Windows)
+--------------------------------------
+Command Prompt (Run as Administrator):
+  setx OPENROUTER_API_KEY "<YOUR_OPENROUTER_API_KEY>"
+
+Verify it's set:
+  echo %OPENROUTER_API_KEY%
+
+Current session only (temporary):
+  set OPENROUTER_API_KEY=<YOUR_OPENROUTER_API_KEY>
+
+
+2. NAVIGATE TO PROJECT DIRECTORY
+-----------------------------------
+  cd e:\SD\LAB 8
+
+
+3. COMPILE APPLICATION
+-----------------------
+First time compilation:
+  javac Chat.java
+
+Recompile after changes:
+  javac Chat.java
+
+Clear compiled files (if needed):
+  del *.class
+
+
+4. RUN THE APPLICATION
+------------------------
+Basic run:
+  java Chat
+
+Run in background (Windows):
+  start java Chat
+
+Run with explicit classpath:
+  java -cp . Chat
+
+Run with memory settings (if needed):
+  java -Xmx512m Chat
+
+
+5. CHECK JAVA VERSION
+---------------------
+  java -version
+
+
+6. TROUBLESHOOTING COMMANDS
+---------------------------
+List all Java classes:
+  dir *.class
+
+List all Java sources:
+  dir *.java
+
+Check if API key is set:
+  echo %OPENROUTER_API_KEY%
+
+Verify OpenRouter connectivity:
+  curl -I https://openrouter.ai/api/v1/chat/completions
+
+
+COMPILATION DETAILS:
+====================
+
+Compile individual classes (not needed, javac handles all):
+  javac Chat.java OpenRouterClient.java Message.java NLPProcessor.java NLPAnalysis.java
+
+Compile with verbose output:
+  javac -verbose Chat.java
+
+Compile with warnings:
+  javac -Xlint Chat.java
+
+Check syntax without compiling:
+  javac -Xdist -Xlint Chat.java
+
+
+RUNTIME OPTIONS:
+================
+
+Show help:
+  java -h
+
+Set heap memory:
+  java -Xmx1024m Chat    (1GB maximum)
+  java -Xms512m Chat     (512MB initial)
+
+Enable debug info:
+  java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 Chat
+
+Show version:
+  java -version
+  java -fullversion
+
+
+FILE OPERATIONS:
+================
+
+View Chat.java source:
+  type Chat.java
+
+Edit Chat.java:
+  notepad Chat.java
+
+Count lines in source:
+  find /c /v "" Chat.java
+
+Delete compiled files:
+  del Chat.class OpenRouterClient.class Message.class NLPProcessor.class NLPAnalysis.class
+
+Create backup:
+  copy Chat.java Chat.java.backup
+
+
+API TESTING:
+============
+
+Test OpenRouter API with curl:
+  curl -X POST https://openrouter.ai/api/v1/chat/completions ^
+    -H "Authorization: Bearer sk-or-v1-..." ^
+    -H "Content-Type: application/json" ^
+    -d "{\"model\":\"openai/gpt-4o-mini\",\"messages\":[{\"role\":\"user\",\"content\":\"Hello\"}]}"
+
+Test API key validity:
+  curl https://openrouter.ai/account/api-tokens
+
+
+PROJECT STRUCTURE:
+==================
+
+Current Directory: e:\SD\LAB 8
+
+Files in project:
+  Chat.java                  - Main source (compile to Chat.class)
+  Chat.class                 - Compiled executable
+  OpenRouterClient.class     - API client
+  Message.class              - Message model
+  NLPProcessor.class         - NLP engine
+  NLPAnalysis.class          - Analysis results
+  QUICK_START.txt            - Quick guide
+  OPENROUTER_SETUP.txt       - Detailed setup
+  PROJECT_SUMMARY.txt        - Project overview
+  COMMAND_REFERENCE.txt      - This file
+
+
+WORKFLOW:
+=========
+
+1. First Time Setup:
+   a. setx OPENROUTER_API_KEY "sk-or-v1-..."
+   b. Close and reopen Command Prompt
+   c. cd e:\SD\LAB 8
+   d. javac Chat.java
+   e. java Chat
+
+2. Run Application:
+   a. cd e:\SD\LAB 8
+   b. java Chat
+   c. Enter API key if prompted
+
+3. Update Code:
+   a. Edit Chat.java
+   b. javac Chat.java
+   c. java Chat
+
+4. Troubleshoot:
+   a. Check: echo %OPENROUTER_API_KEY%
+   b. Check: dir *.class
+   c. Recompile: javac Chat.java
+   d. Run: java Chat -Xlint
+
+
+USEFUL SHORTCUTS:
+=================
+
+Quick Setup on New Machine:
+  setx OPENROUTER_API_KEY "<YOUR_OPENROUTER_API_KEY>"
+  cd /d e:\SD\LAB 8
+  javac Chat.java && java Chat
+
+One-Line Compile and Run:
+  javac Chat.java && java Chat
+
+Create All Documentation:
+  (Already created in PROJECT_SUMMARY.txt, QUICK_START.txt, etc.)
+
+
+COMMON ISSUES & FIXES:
+======================
+
+Issue: "javac command not found"
+Fix: Java not in PATH
+  Solution: 
+    1. Install Java JDK 11+
+    2. Add to PATH: C:\Program Files\Java\jdk-11\bin
+    3. Restart Command Prompt
+
+Issue: "Exception in thread main: ClassNotFoundException"
+Fix: Class not compiled or wrong directory
+  Solution:
+    1. cd e:\SD\LAB 8
+    2. javac Chat.java
+    3. java Chat
+
+Issue: "API Key not configured"
+Fix: Environment variable not set
+  Solution: See "SET ENVIRONMENT VARIABLE" section above
+
+Issue: Connection refused
+Fix: Cannot reach OpenRouter API
+  Solution:
+    1. Check internet: ping openrouter.ai
+    2. Check API key: echo %OPENROUTER_API_KEY%
+    3. Visit: https://status.openrouter.ai
+
+Issue: OutOfMemoryError
+Fix: Not enough heap memory
+  Solution: java -Xmx1024m Chat
+
+
+PERFORMANCE TUNING:
+===================
+
+For slow responses:
+  - Try faster model: openai/gpt-4o-mini
+  - Increase timeout: Edit source, change timeout values
+
+For memory issues:
+  - Use -Xmx option: java -Xmx512m Chat
+  - Reduce conversation history (edit NLPProcessor)
+
+For faster startup:
+  - Pre-warm JVM: Run a simple test first
+
+For debugging:
+  - Add verbose output: javac -verbose Chat.java
+
+
+ENVIRONMENT SETUP:
+==================
+
+Verify Setup:
+  1. echo %OPENROUTER_API_KEY%     (should show your key)
+  2. java -version                  (should show JDK 11+)
+  3. cd e:\SD\LAB 8 && dir *.class (should show 5 class files)
+  4. java Chat                      (should start application)
+
+If everything works, you're ready!
+
+
+ADVANCED OPTIONS:
+==================
+
+Remote Debugging:
+  java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005 Chat
+
+GC Logging:
+  java -Xlog:gc Chat
+
+Profiling:
+  java -XX:+UnlockDiagnosticVMOptions -XX:+TraceClassLoading Chat
+
+Full Verbose Output:
+  java -verbose Chat
+
+
+SUPPORT RESOURCES:
+==================
+
+OpenRouter:
+  https://openrouter.ai
+  https://openrouter.ai/docs
+  https://openrouter.ai/keys
+
+Java Documentation:
+  https://docs.oracle.com/javase/11/
+  https://docs.oracle.com/javase/11/docs/api/
+
+Swing GUI Documentation:
+  https://docs.oracle.com/javase/11/docs/api/java.desktop/
+
+
+YOUR NEXT STEPS:
+================
+
+1. Set environment variable:
+   setx OPENROUTER_API_KEY "<YOUR_OPENROUTER_API_KEY>"
+
+2. Compile and run:
+   cd e:\SD\LAB 8
+   javac Chat.java
+   java Chat
+
+3. Start chatting!
+   - Select a model
+   - Type your message
+   - Press Send
+
+That's it! Enjoy your AI chatbot!
